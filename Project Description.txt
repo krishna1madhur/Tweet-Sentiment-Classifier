@@ -1,0 +1,18 @@
+Goal:
+
+Performed supervised learning for predicting a label for given test data, using the model trained on labeled training data. 
+Used different machine learning techniques like Naïve Beyesian and Logistic Regression. Used data from twitter database for generating training and test data.
+
+Tasks:
+1. The file 'train.csv' contains information about the tweets in a csv file. The data is preprocessed using appropriate transformation rules.
+2. The feature extractor is used to convert each input TRAINING data to a feature set. I used 'terms and frequency bag-of-words feature' for this purpose.
+3. The pairs of features and labels are inputted into the machine learning algorithm to train a model(Naive Bayesian or Logistice Regression)
+4. During the prediction phase, the same feature extractor is applied on the TEST data, and the extracted feature sets are inputted into the model to generate the predicted labels.
+5. The accuracy, precision, recall and f1 score of the classfier developed are tested on training data and test data. 
+6. Different experiements are conducted to reduce overfitting in the developed classifiers and improve the accuracy, f1-measure on the test data.
+
+Sources:
+
+1.Stackoverflow
+2.Spark Documentation
+3.Specific post: http://stackoverflow.com/questions/32231049/how-to-use-spark-naive-bayes-classifier-for-text-classification-with-idf
