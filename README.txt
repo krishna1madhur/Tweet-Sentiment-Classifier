@@ -25,3 +25,5 @@ To run the program please follow these instructions:
 3. Place the files 'tweet_classifier.ipynb', 'data/train.csv' and 'data/test.csv' files in the Jupyter notebook. 
 
 4. You should be able to run the code now.
+
+Please refer to results.txt for the details about the experimentation done after the classifier construction.

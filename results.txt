@@ -1,0 +1,62 @@
+Tweet Processing Steps:
+
+1.Retained the commas(,) in the tweets when splitting the data from csv file. Neglected all other columns apart from the target columns in the csv file(labels,text)
+2.All the users who were tagged in the tweets with '@' are replaced with 'ATUSER'
+3.All the tweets are converted into the lower case.
+4.All the words that start with the letters are removed from the tweets.
+5.All the urls which start with http or https are replaced with 'URL'
+6.All the words which have three or more repeating characters are replaced with two of the repeating characters.
+7.Removed all the unnecessary special symbols from the tweets.
+8.Removed all the STOPWORDS from the tweets using nltk library.
+9.Resolved the words containing " ' " into two words and removed the stop words
+10.Now the tweets are clean and ready to get tokenized. They are stored as an RDD along with their label.
+
+Feature Space:
+
+I have constructed my feature space using term frequency. All the tweets in the CSV file are converted into feature vectors.
+Size of the feature space 1048576 which was by default. Then I experimented with size of feature space as 5000. 
+
+Exp 1: Classifier = NB,  Size of feature space = 1048576, lambda =1.0
+Training Data: Accuracy = 82.7973, Precision = 0.8332, Recall = 0.82458, F1 Score = 0.4144
+Test Data: Accuracy = 78.27298, Precision = 0.77401, Recall = 0.78285, F1 Score = 0.38920 
+
+Exp 2: Classifier = NB,  Size of feature space = 5000, lambda =1.0
+Training Data: Accuracy = 75.51, Precision = 0.74885,Recall = 0.75831, F1 Score = 0.37678
+Test Data: Accuracy = 77.994, Precision = 0.77966, Recall = 0.77528, F1 Score = 0.3887
+	
+Experiments:
+
+I did 4 experiements on the NB Classifier by fine tuning its lambda parameter. 
+
+Exp1: lambda =1.0
+Training Data: Accuracy = 82.7973, Precision = 0.8332, Recall = 0.82458, F1 Score = 0.4144
+Test Data: Accuracy = 78.27298, Precision = 0.77401, Recall = 0.78285, F1 Score = 0.38920
+
+Exp2: lambda =30.0
+Training Data: Accuracy = 76.98, Precision = 0.7641, Recall = 0.77291, F1 Score = 0.38424
+Test Data: Accuracy = 80.501, Precision = 0.77401, Recall = 0.83025, F1 Score = 0.39825
+
+Exp3: lambda = 60.0
+Training Data: Accuracy = 76.01375, Precision = 0.74555, Recall = 0.7679, F1 Score = 0.37829
+Test Data: Accuracy = 78.2729, Precision = 0.75412, Recall = 0.79640, F1 Score = 0.38662
+
+Exp4: lambda = 0.5
+Training Data: Accuracy = 83.76625, Precision = 0.8424, Recall = 0.83449, F1 Score = 0.4192
+Test Data: Accuracy = 76.8802, Precision = 0.7570, Recall = 0.7701, F1 Score = 0.38176
+
+Conclusions: From the above experiements, as lambda value decreases (lambda = 0.5), the classifier is getting overfitted. 
+	The classifier performs well on training data but performance decreases on the test data. 
+	As I increase lambda value to 30, I achieved a high accuracy and F1 scores when compared to other experiements. 
+	Also, increasing lambda to 60 further decreases the performance of the classifier. From my experiments, lambda = 30 produces best results (good classifier).
+
+NB: lambda = 30.0
+Training Data: Accuracy = 76.98, Precision = 0.7641, Recall = 0.77291, F1 Score = 0.38424
+Test Data: Accuracy = 80.501, Precision = 0.77401, Recall = 0.83025, F1 Score = 0.39825
+
+Logistic Regression: iterations= 100, regType – 'l2'
+Training Data: Accuracy = 89.945, Precision = 0.891075, Recall = 0.90625, F1 Score = 0.44930
+Test Data: Accuracy = 70.473, Precision = 0.69491, Recall = 0.70285, F1 Score = 0.34943
+
+Conclusions: Naive Bayes classifier performed better compared to Logistic Regression. 
+	This can be seen from the experiments that i put up above. Accuracy and F1 measure of the NB classifier 
+	with smoothing parameter as 30 would give us the best results.
