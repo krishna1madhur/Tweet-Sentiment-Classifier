@@ -1,7 +1,7 @@
 Goal:
 
-Performed supervised learning for predicting a label for given test data, using the model trained on labeled training data. 
-Used different machine learning techniques like Naïve Beyesian and Logistic Regression. Used data from twitter database for generating training and test data.
+Performed supervised learning for predicting a label for given test data, using the model that is trained on labeled training data. 
+Used different machine learning techniques like NaÃ¯ve Beyesian and Logistic Regression. Used data from twitter database for generating training and test data.
 
 Tasks:
 1. The file 'train.csv' contains information about the tweets in a csv file. The data is preprocessed using appropriate transformation rules.
